@@ -1,0 +1,17 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+- task: ArtifactoryNpm@2
+  inputs:
+    command: 'install'
+    artifactoryService: 'cloud'
+    sourceRepo: 'npm'
+    workingFolder: 'npm-example'
