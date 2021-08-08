@@ -22,3 +22,13 @@ steps:
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     includeEnvVars: true
+- task: ArtifactoryNpm@2
+  inputs:
+    command: 'pack and publish'
+    artifactoryService: 'cloud'
+    targetRepo: 'npm'
+    workingFolder: 'npm-example'
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    includeEnvVars: true
