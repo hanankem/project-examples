@@ -10,9 +10,15 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+
 - task: ArtifactoryNpm@2
   inputs:
     command: 'install'
     artifactoryService: 'cloud'
     sourceRepo: 'npm'
     workingFolder: 'npm-example'
+    collectBuildInfo: true
+    threads: '1'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    includeEnvVars: true
